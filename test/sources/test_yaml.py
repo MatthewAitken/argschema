@@ -58,7 +58,8 @@ def test_yaml_sink(test_yaml_input_file, tmpdir):
     source = YamlSource(input_yaml=test_yaml_input_file)
     sink = YamlSink(output_yaml = str(outfile))
     mod = MyParser(input_source=source,
-                   output_sink=sink)
+                   output_sink=sink,
+                   args=[])
     mod.output(output_data)
 
     with open(str(outfile), 'r') as fp:
